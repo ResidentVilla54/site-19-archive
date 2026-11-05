@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>SCP-8472 - SCP Foundation</title>
+<style>
+  body { background:#f4f4f4; font-family: Verdana, sans-serif; max-width:800px; margin:40px auto; padding:0 20px; color:#222; }
+  h1 { border-bottom:2px solid #900; }
+  .warn { background:#900; color:#fff; padding:12px; text-align:center; cursor:pointer; font-weight:bold; }
+  #vid { display:none; position:fixed; inset:0; width:100%; height:100%; background:#000; z-index:99; }
+</style>
+</head>
+<body>
+  <h1>SCP-8472</h1>
+  <p><b>Object Class:</b> Euclid</p>
+  <p><b>Special Containment Procedures:</b> SCP-8472 is to be kept in a standard locker at Site-19. Personnel are advised to view the attached footage only with Level 3 clearance or higher.</p>
+  <p><b>Description:</b> [DATA EXPUNGED]</p>
+  <div class="warn" id="gate">⚠ MEMETIC HAZARD: Click here to confirm Level 3 clearance and view the footage</div>
+
+  <video id="vid" src="video.mp4" playsinline></video>
+
+<script>
+  const gate = document.getElementById('gate');
+  const vid = document.getElementById('vid');
+  gate.addEventListener('click', () => {
+    vid.style.display = 'block';
+    vid.play();
+  });
+</script>
+</body>
+</html>
