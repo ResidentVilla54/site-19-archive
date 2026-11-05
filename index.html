@@ -2,22 +2,124 @@
 <html>
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SCP-8472 - SCP Foundation</title>
 <style>
-  body { background:#f4f4f4; font-family: Verdana, sans-serif; max-width:800px; margin:40px auto; padding:0 20px; color:#222; }
-  h1 { border-bottom:2px solid #900; }
-  .warn { background:#900; color:#fff; padding:12px; text-align:center; cursor:pointer; font-weight:bold; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:#fff; color:#222; font-family: Verdana, Geneva, sans-serif; font-size:14px; line-height:1.5; }
+  a { color:#b01; text-decoration:none; }
+  a:hover { text-decoration:underline; }
+
+  /* Header */
+  #header { background:linear-gradient(#2b2b2b,#1a1a1a); color:#fff; padding:14px 20px; border-bottom:3px solid #901; display:flex; align-items:center; gap:14px; }
+  #header .logo { width:46px; height:46px; border-radius:50%; border:3px solid #fff; display:flex; align-items:center; justify-content:center; font-weight:bold; font-size:11px; letter-spacing:1px; }
+  #header h1 { margin:0; font-size:26px; letter-spacing:1px; border:none; }
+  #header .sub { font-size:11px; color:#bbb; letter-spacing:2px; text-transform:uppercase; }
+  #topbar { background:#e8e8e8; border-bottom:1px solid #ccc; padding:6px 20px; font-size:12px; }
+  #topbar a { margin-right:16px; }
+
+  /* Layout */
+  #wrap { display:flex; max-width:1100px; margin:0 auto; }
+  #side { width:220px; padding:20px 16px; background:#f6f6f6; border-right:1px solid #ddd; font-size:12px; flex-shrink:0; }
+  #side h4 { margin:16px 0 6px; font-size:12px; text-transform:uppercase; color:#901; border-bottom:1px solid #ccc; }
+  #side ul { list-style:none; margin:0; padding:0; }
+  #side li { margin:4px 0; }
+  #main { flex:1; padding:20px 30px 60px; min-width:0; }
+
+  /* Article */
+  #main h1.title { font-size:28px; font-weight:normal; color:#333; border-bottom:1px solid #aaa; margin:0 0 14px; padding-bottom:4px; }
+  .rate { float:right; border:1px solid #ccc; background:#f6f6f6; padding:2px 8px; font-size:12px; margin-left:10px; }
+  .rate b { color:#901; }
+  .item { font-weight:bold; margin:0 0 12px; }
+  .item span { font-weight:bold; }
+  .classbox { background:#f0f0f0; border:1px solid #bbb; border-left:5px solid #901; padding:8px 12px; margin:10px 0 18px; }
+  p { margin:0 0 12px; }
+  .redact { background:#000; color:#000; padding:0 2px; user-select:none; }
+  blockquote { border:1px solid #ccc; background:#f8f8f8; margin:12px 0; padding:8px 14px; }
+  .warn { background:#901; color:#fff; padding:14px; text-align:center; cursor:pointer; font-weight:bold; margin:18px 0; border:2px solid #600; }
+  .warn:hover { background:#a22; }
+  .tags { margin:24px 0 10px; font-size:12px; }
+  .tags a { display:inline-block; background:#eee; border:1px solid #ccc; padding:1px 8px; margin:2px 3px 2px 0; border-radius:3px; }
+
+  /* Footer */
+  #footer { border-top:1px solid #ccc; background:#f6f6f6; padding:14px 20px; font-size:11px; color:#666; text-align:center; }
+
   #vid { display:none; position:fixed; inset:0; width:100%; height:100%; background:#000; z-index:99; }
+
+  @media (max-width:700px) { #wrap { flex-direction:column; } #side { width:100%; border-right:none; } #main { padding:16px; } }
 </style>
 </head>
 <body>
-  <h1>SCP-8472</h1>
-  <p><b>Object Class:</b> Euclid</p>
-  <p><b>Special Containment Procedures:</b> SCP-8472 is to be kept in a standard locker at Site-19. Personnel are advised to view the attached footage only with Level 3 clearance or higher.</p>
-  <p><b>Description:</b> [DATA EXPUNGED]</p>
-  <div class="warn" id="gate">⚠ MEMETIC HAZARD: Click here to confirm Level 3 clearance and view the footage</div>
 
-  <video id="vid" src="video.mp4" playsinline preload="auto"></video>
+<div id="header">
+  <div class="logo">SCP</div>
+  <div>
+    <h1>SCP Foundation</h1>
+    <div class="sub">Secure. Contain. Protect.</div>
+  </div>
+</div>
+<div id="topbar">
+  <a href="#">Main</a><a href="#">About</a><a href="#">Series</a><a href="#">Tales</a><a href="#">Guide Hub</a><a href="#">Forum</a><a href="#">Sandbox</a>
+</div>
+
+<div id="wrap">
+  <div id="side">
+    <h4>Navigation</h4>
+    <ul>
+      <li><a href="#">Main Page</a></li>
+      <li><a href="#">What is SCP?</a></li>
+      <li><a href="#">Object Classes</a></li>
+      <li><a href="#">Security Clearance</a></li>
+    </ul>
+    <h4>SCP Series</h4>
+    <ul>
+      <li><a href="#">Series I</a></li>
+      <li><a href="#">Series II</a></li>
+      <li><a href="#">Series III</a></li>
+      <li><a href="#">Series IV</a></li>
+      <li><a href="#">Series V</a></li>
+      <li><a href="#">Series VI</a></li>
+      <li><a href="#">Series VII</a></li>
+      <li><a href="#">Series VIII</a></li>
+    </ul>
+    <h4>Resources</h4>
+    <ul>
+      <li><a href="#">Top Rated</a></li>
+      <li><a href="#">New Pages</a></li>
+      <li><a href="#">Random SCP</a></li>
+    </ul>
+  </div>
+
+  <div id="main">
+    <div class="rate">rating: <b>+312</b> &nbsp;<a href="#">+</a> / <a href="#">&minus;</a></div>
+    <h1 class="title">SCP-8472</h1>
+
+    <p class="item">Item #: SCP-8472</p>
+    <div class="classbox"><b>Object Class:</b> Euclid</div>
+
+    <p><b>Special Containment Procedures:</b> SCP-8472 is to be kept in a standard storage locker at Site-19. Access requires approval from at least one (1) Level 3 researcher. Personnel are advised to view the attached footage only with Level 3 clearance or higher, and only while a Class-B amnestic is on standby. Any recording made of SCP-8472 is to be catalogued and stored in Archive 8472-B.</p>
+
+    <p><b>Description:</b> SCP-8472 is a <span class="redact">████████████</span> that manifests exclusively when observed through audiovisual media. Subjects exposed to SCP-8472 report a persistent sense of familiarity, followed by <span class="redact">██████████████</span>. Effects are not known to persist beyond <span class="redact">██</span> hours.</p>
+
+    <p>SCP-8472 was recovered on ██/██/20██ following reports of anomalous activity near <span class="redact">████████</span>. Further information is available to personnel with appropriate clearance.</p>
+
+    <blockquote><b>Addendum 8472-A:</b> Following Incident 8472-12, the footage is to be treated as a memetic hazard. All viewing is to be logged.</blockquote>
+
+    <div class="warn" id="gate">⚠ MEMETIC HAZARD: Click here to confirm Level 3 clearance and view the footage</div>
+
+    <video id="vid" src="video.mp4" playsinline preload="auto"></video>
+
+    <div class="tags">
+      <b>tags:</b>
+      <a href="#">audio</a><a href="#">euclid</a><a href="#">memetic</a><a href="#">scp</a><a href="#">visual</a>
+    </div>
+  </div>
+</div>
+
+<div id="footer">
+  Unless otherwise stated, the content of this page is licensed under Creative Commons Attribution-ShareAlike 3.0 License.<br>
+  <a href="#">Terms of Service</a> &middot; <a href="#">Privacy Policy</a> &middot; <a href="#">Contact</a>
+</div>
 
 <script>
   const gate = document.getElementById('gate');
